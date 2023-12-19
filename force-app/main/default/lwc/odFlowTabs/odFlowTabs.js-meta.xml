@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <masterLabel>On Duty Flow Tabs</masterLabel>
+    <description>Tabs to use in Flows</description>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen"
+            configurationEditor="c-od-flow-tabs-configuration-editor">
+            <property name="tabs" label="Tabs" type="String" role="inputOnly" required="true"
+                default="{}"
+                description="JSON string with the tabs to display." />
+            <property name="variant" label="Variant" type="String"
+                role="inputOnly"
+                default="standard"
+                description="The variant changes the appearance of the tabset. Accepted variants are standard and scoped." />
+            <property name="title" label="Title" type="String"
+                role="inputOnly"
+                description="Displays tooltip text when the mouse moves over the tabset." />
+
+            <!-- Output variables -->
+            <property name="activeTab" label="Active Tab"
+                type="String" role="outputOnly"
+                description="Sets a specific tab to open by default using a string that matches a tab's value string. If not used, the first tab opens by default." />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

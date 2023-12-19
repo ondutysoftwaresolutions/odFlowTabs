@@ -1,0 +1,171 @@
+<template>
+  <lightning-modal-header label="Configure Tabs"></lightning-modal-header>
+  <lightning-modal-body>
+    <div class="slds-p-around--xx-small">
+      <lightning-button
+        label="Add New Tab"
+        title="Add New Tab"
+        icon-name="utility:new"
+        onclick={handleAddTab}
+        variant="brand"
+      >
+      </lightning-button>
+    </div>
+    <template lwc:if={theTabs.length}>
+      <div class="slds-m-top--medium slds-p-around--xx-small">
+        <table class="tabsTable">
+          <thead>
+            <tr>
+              <th class="slds-p-around--x-small" style="width: 100px">Tab Id</th>
+              <th class="slds-p-around--x-small" style="width: 250px">Label</th>
+              <th class="slds-p-around--x-small" style="width: 250px">Title</th>
+              <th class="slds-p-around--x-small" style="width: 150px">Icon Name</th>
+              <th class="slds-p-around--x-small" style="width: 150px">End Icon Name</th>
+              <th class="slds-p-around--x-small" style="width: 200px">
+                Variable Error
+                <lightning-helptext
+                  class="slds-m-left--xx-small helpText"
+                  content="Select a boolean variable/constant/formula that is used to show an error on the tab"
+                >
+                </lightning-helptext>
+              </th>
+              <th class="slds-p-around--x-small slds-text-align--center" style="width: 150px">Default Active?</th>
+              <th class="slds-p-around--x-small" style="width: 80px">Order</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template for:each={theTabs} for:item="tab">
+              <tr key={tab.value}>
+                <td class="slds-text-align--center">
+                  <lightning-formatted-text value={tab.value}></lightning-formatted-text>
+                </td>
+
+                <td>
+                  <lightning-input
+                    class="slds-p-around--xx-small"
+                    type="text"
+                    name="label"
+                    variant="label-hidden"
+                    value={tab.label}
+                    data-value={tab.value}
+                    onchange={handleUpdateField}
+                  >
+                  </lightning-input>
+                </td>
+                <td>
+                  <lightning-input
+                    class="slds-p-around--xx-small"
+                    type="text"
+                    name="title"
+                    variant="label-hidden"
+                    value={tab.title}
+                    data-value={tab.value}
+                    onchange={handleUpdateField}
+                  >
+                  </lightning-input>
+                </td>
+                <td>
+                  <lightning-input
+                    class="slds-p-around--xx-small"
+                    type="text"
+                    name="iconName"
+                    variant="label-hidden"
+                    value={tab.iconName}
+                    data-value={tab.value}
+                    onchange={handleUpdateField}
+                  >
+                  </lightning-input>
+                </td>
+                <td>
+                  <lightning-input
+                    class="slds-p-around--xx-small"
+                    type="text"
+                    name="endIconName"
+                    variant="label-hidden"
+                    value={tab.endIconName}
+                    data-value={tab.value}
+                    onchange={handleUpdateField}
+                  >
+                  </lightning-input>
+                </td>
+                <td>
+                  <template lwc:if={errorOptions.length}>
+                    <lightning-combobox
+                      class="slds-p-around--xx-small"
+                      name="hasError"
+                      variant="label-hidden"
+                      value={tab.hasError}
+                      data-value={tab.value}
+                      placeholder="Select...."
+                      options={errorOptions}
+                      onchange={handleUpdateField}
+                    >
+                    </lightning-combobox>
+                  </template>
+                  <template lwc:else>
+                    <div class="slds-p-around--x-small">
+                      <lightning-formatted-text
+                        value="There are no Boolean variables, constants or formulas in the flow"
+                      >
+                      </lightning-formatted-text>
+                    </div>
+                  </template>
+                </td>
+                <td class="slds-text-align--center">
+                  <input
+                    type="radio"
+                    name="isDefault"
+                    value={tab.isDefault}
+                    onchange={handleSelectRadioDefault}
+                    data-value={tab.value}
+                    checked={tab.isDefault}
+                  />
+                </td>
+                <td>
+                  <lightning-input
+                    type="number"
+                    name="order"
+                    variant="label-hidden"
+                    value={tab.order}
+                    data-value={tab.value}
+                    onchange={handleUpdateField}
+                    scale="0"
+                    class="slds-p-around--xx-small"
+                  >
+                  </lightning-input>
+                </td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </template>
+  </lightning-modal-body>
+  <lightning-modal-footer>
+    <div class="slds-grid">
+      <div class="slds-align--absolute-center slds-size--12-of-12">
+        <lightning-button
+          variant="brand"
+          disabled={disabledSave}
+          name="save"
+          label="Save"
+          title="Save"
+          onclick={handleSave}
+          class="slds-m-right--large"
+        >
+        </lightning-button>
+        <lightning-button name="cancel" label="Cancel" title="Cancel" onclick={handleClose}> </lightning-button>
+      </div>
+      <lightning-button
+        name="reOrder"
+        label="Reorder"
+        title="Reorder"
+        onclick={handleReorder}
+        class="slds-is-absolute slds-m-right--x-large"
+        disabled={disabledSave}
+        style="right: 0"
+      >
+      </lightning-button>
+    </div>
+  </lightning-modal-footer>
+</template>

@@ -1,0 +1,25 @@
+.tabsTable th {
+  position: sticky;
+  background: #f4f2f2;
+  top: -25px;
+  z-index: 10;
+}
+
+.tabsTable tr {
+  border: var(--lwc-borderWidthThin, 1px) solid
+    var(--slds-g-color-border-base-1, var(--lwc-colorBorder, rgb(229, 229, 229)));
+}
+
+.tabsTable tbody tr {
+  border-top: 0;
+}
+
+.tabsTable th:not(:last-child),
+.tabsTable td:not(:last-child) {
+  border-right: var(--lwc-borderWidthThin, 1px) solid
+    var(--slds-g-color-border-base-1, var(--lwc-colorBorder, rgb(229, 229, 229)));
+}
+
+.helpText {
+  line-height: 1.5rem;
+}

@@ -1,0 +1,39 @@
+<template>
+  <fieldset class="slds-box slds-m-top--x-small">
+    <legend>Properties</legend>
+    <lightning-input
+      type="text"
+      name="title"
+      label={inputValues.title.label}
+      field-level-help={inputValues.title.helpText}
+      value={inputValues.title.value}
+      onchange={handleInputChange}
+    >
+    </lightning-input>
+    <lightning-combobox
+      name="variant"
+      label={inputValues.variant.label}
+      value={inputValues.variant.value}
+      placeholder="Select Variant"
+      options={variantOptions}
+      onchange={handleInputChange}
+      class="slds-m-top--x-small"
+      field-level-help={inputValues.variant.helpText}
+    >
+    </lightning-combobox>
+    <div class="slds-m-top--small">
+      <lightning-button
+        label="Configure Tabs"
+        icon-name="utility:tabset"
+        onclick={handleOpenTabsConfigurator}
+        variant="brand"
+      >
+      </lightning-button>
+      <template lwc:if={emptyTabs}>
+        <div role="alert" class="slds-form-element__help error-text">
+          You must create at least one tab. Click the button to do it.
+        </div>
+      </template>
+    </div>
+  </fieldset>
+</template>
