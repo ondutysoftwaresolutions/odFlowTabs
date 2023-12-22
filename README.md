@@ -48,8 +48,12 @@ Live Demo on a Scratch Org: <a href="https://hosted-scratch.herokuapp.com/launch
 
 ![Component Visibility](./images/ComponentVisibility.png)
 
-### Tabs In Use
+### How it looks like
+
+#### Standard
 
 ![Standard](./images/Standard.png)
+
+#### Scoped
 
 ![Scoped](./images/Scoped.png)
