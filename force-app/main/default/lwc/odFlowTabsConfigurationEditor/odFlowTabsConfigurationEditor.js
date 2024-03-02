@@ -15,8 +15,8 @@ export default class OD_FlowTabsConfigurationEditor extends LightningElement {
       label: 'Title',
       helpText: 'Displays tooltip text when the mouse moves over the tabset.',
     },
-    activeTab: {
-      label: 'Active Tab',
+    selectedTab: {
+      label: 'Selected Tab',
       helpText:
         "Sets a specific tab to open by default using a string that matches a tab's value string. If not used, the first tab opens by default.",
     },
@@ -73,6 +73,57 @@ export default class OD_FlowTabsConfigurationEditor extends LightningElement {
         value: 'scoped',
       },
     ];
+  }
+
+  get selectedTabOptions() {
+    const result = [];
+
+    // variables
+    const variables = this.builderContext.variables;
+    if (variables.length > 0) {
+      const variablesPerType = variables.filter((vr) => vr.dataType.toLowerCase() === 'string');
+
+      if (variablesPerType.length > 0) {
+        variablesPerType.forEach((vpo) => {
+          result.push({
+            label: vpo.name,
+            value: `{!${vpo.name}}`,
+          });
+        });
+      }
+    }
+
+    // formulas
+    const formulas = this.builderContext.formulas;
+    if (formulas.length > 0) {
+      const formulasPerType = formulas.filter((fml) => fml.dataType.toLowerCase() === 'string');
+
+      if (formulasPerType.length > 0) {
+        formulasPerType.forEach((fml) => {
+          result.push({
+            label: fml.name,
+            value: `{!${fml.name}}`,
+          });
+        });
+      }
+    }
+
+    // constants
+    const constants = this.builderContext.constants;
+    if (constants.length > 0) {
+      const constantsPerType = constants.filter((cnt) => cnt.dataType.toLowerCase() === 'string');
+
+      if (constantsPerType.length > 0) {
+        constantsPerType.forEach((cnt) => {
+          result.push({
+            label: cnt.name,
+            value: `{!${cnt.name}}`,
+          });
+        });
+      }
+    }
+
+    return result;
   }
 
   // =================================================================

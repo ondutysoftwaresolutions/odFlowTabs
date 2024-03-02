@@ -29,7 +29,6 @@
                 >
                 </lightning-helptext>
               </th>
-              <th class="slds-p-around--x-small slds-text-align--center" style="width: 150px">Default Active?</th>
               <th class="slds-p-around--x-small" style="width: 80px">Order</th>
             </tr>
           </thead>
@@ -110,16 +109,6 @@
                       </lightning-formatted-text>
                     </div>
                   </template>
-                </td>
-                <td class="slds-text-align--center">
-                  <input
-                    type="radio"
-                    name="isDefault"
-                    value={tab.isDefault}
-                    onchange={handleSelectRadioDefault}
-                    data-value={tab.value}
-                    checked={tab.isDefault}
-                  />
                 </td>
                 <td>
                   <lightning-input

@@ -20,6 +20,9 @@
             <property name="title" label="Title" type="String"
                 role="inputOnly"
                 description="Displays tooltip text when the mouse moves over the tabset." />
+            <property name="selectedTab" label="Selected Tab" type="String"
+                role="inputOnly"
+                description="Sets a specific tab to open by default using a string that matches a tab's value string. If not used, the first tab opens by default." />
 
             <!-- Output variables -->
             <property name="activeTab" label="Active Tab"

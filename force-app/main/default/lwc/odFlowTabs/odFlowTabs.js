@@ -6,6 +6,7 @@ export default class OD_FlowTabs extends LightningElement {
   @api title;
   @api variant;
   @api tabs;
+  @api selectedTab;
 
   // output variables
   @api activeTab;
@@ -17,7 +18,7 @@ export default class OD_FlowTabs extends LightningElement {
   // =================================================================
   connectedCallback() {
     // put the default as active at the beginning
-    this.theActiveTab = this.theTabs.find((tb) => tb.isDefault)?.value || this.theTabs[0].value;
+    this.theActiveTab = this.selectedTab || this.theTabs[0].value;
   }
 
   // =================================================================

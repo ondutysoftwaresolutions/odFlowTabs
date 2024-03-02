@@ -34,6 +34,19 @@
           You must create at least one tab. Click the button to do it.
         </div>
       </template>
+      <div class="slds-m-top--small">
+        <lightning-combobox
+          name="selectedTab"
+          label={inputValues.selectedTab.label}
+          value={inputValues.selectedTab.value}
+          placeholder="Select Default Tab"
+          options={selectedTabOptions}
+          onchange={handleInputChange}
+          class="slds-m-top--x-small"
+          field-level-help={inputValues.selectedTab.helpText}
+        >
+        </lightning-combobox>
+      </div>
     </div>
   </fieldset>
 </template>

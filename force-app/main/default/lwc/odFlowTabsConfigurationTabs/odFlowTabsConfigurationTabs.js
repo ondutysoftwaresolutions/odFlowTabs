@@ -139,16 +139,6 @@ export default class OD_FlowTabsConfigurationTabs extends LightningModal {
     };
   }
 
-  handleSelectRadioDefault(event) {
-    const checked = event.target.checked;
-
-    // all in false
-    this.theTabs.forEach((tb) => (tb.isDefault = false));
-
-    event.detail = { value: checked };
-    this.handleUpdateField(event);
-  }
-
   handleClose() {
     this.close();
   }
