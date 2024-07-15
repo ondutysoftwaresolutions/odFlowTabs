@@ -31,6 +31,7 @@
                 </lightning-helptext>
               </th>
               <th class="slds-p-around--x-small" style="width: 80px">Order</th>
+              <th class="slds-p-around--x-small" style="width: 50px"></th>
             </tr>
           </thead>
           <tbody>
@@ -146,6 +147,17 @@
                     class="slds-p-around--xx-small"
                   >
                   </lightning-input>
+                </td>
+                <td class="slds-align--absolute-center">
+                  <lightning-button-icon
+                    title="Delete Tab"
+                    alternative-text="Delete Tab"
+                    icon-name="utility:delete"
+                    class="slds-form-element slds-p-around--xx-small"
+                    data-value={tab.value}
+                    onclick={handleDeleteTab}
+                  >
+                  </lightning-button-icon>
                 </td>
               </tr>
             </template>

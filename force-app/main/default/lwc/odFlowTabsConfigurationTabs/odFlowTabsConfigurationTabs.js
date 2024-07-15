@@ -164,4 +164,13 @@ export default class OD_FlowTabsConfigurationTabs extends LightningModal {
 
     this.theTabs = this._addDataAndOrder(tabsPlusNew);
   }
+
+  handleDeleteTab(event) {
+    const value = event.target.dataset.value;
+
+    const deletedIndex = this.theTabs.findIndex((tab) => tab.value === value);
+    if (deletedIndex !== -1) {
+      this.theTabs.splice(deletedIndex, 1);
+    }
+  }
 }
