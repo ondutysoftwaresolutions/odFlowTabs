@@ -16,7 +16,7 @@ export default class OD_FlowTabsConfigurationEditor extends LightningElement {
       helpText: 'Displays tooltip text when the mouse moves over the tabset.',
     },
     selectedTab: {
-      label: 'Selected Tab',
+      label: 'Active Tab',
       helpText:
         "Sets a specific tab to open by default using a string that matches a tab's value string. If not used, the first tab opens by default.",
     },
@@ -186,7 +186,7 @@ export default class OD_FlowTabsConfigurationEditor extends LightningElement {
     const resultModal = await FlowTabsConfigurationTabs.open({
       tabs: this.inputValues.tabs.value,
       builderContext: this.builderContext,
-      size: 'medium',
+      size: 'large',
     });
 
     if (resultModal) {

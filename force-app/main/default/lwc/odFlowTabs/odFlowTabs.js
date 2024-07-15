@@ -25,7 +25,14 @@ export default class OD_FlowTabs extends LightningElement {
   // getter methods
   // =================================================================
   get theTabs() {
-    return JSON.parse(this.tabs);
+    const result = JSON.parse(this.tabs);
+
+    result.forEach((tab) => {
+      tab.isError = tab.hasError === 'true';
+      tab.showTab = !tab.hideTab || tab.hideTab !== 'true';
+    });
+
+    return result;
   }
 
   _doDispatchEvent() {

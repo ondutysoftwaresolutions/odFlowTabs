@@ -1,18 +1,20 @@
 <template>
   <lightning-tabset active-tab-value={theActiveTab} title={title} variant={variant}>
     <template for:each={theTabs} for:item="tab">
-      <lightning-tab
-        key={tab.value}
-        label={tab.label}
-        end-icon-name={tab.endIconName}
-        icon-name={tab.iconName}
-        class="slds-p-bottom--none slds-p-top--small border-none"
-        show-error-indicator={tab.hasError}
-        title={tab.label}
-        value={tab.value}
-        onactive={handleActive}
-      >
-      </lightning-tab>
+      <template lwc:if={tab.showTab}>
+        <lightning-tab
+          key={tab.value}
+          label={tab.label}
+          end-icon-name={tab.endIconName}
+          icon-name={tab.iconName}
+          class="slds-p-bottom--none slds-p-top--small border-none"
+          show-error-indicator={tab.isError}
+          title={tab.label}
+          value={tab.value}
+          onactive={handleActive}
+        >
+        </lightning-tab>
+      </template>
     </template>
   </lightning-tabset>
 </template>

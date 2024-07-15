@@ -21,6 +21,7 @@
               <th class="slds-p-around--x-small" style="width: 250px">Title</th>
               <th class="slds-p-around--x-small" style="width: 150px">Icon Name</th>
               <th class="slds-p-around--x-small" style="width: 150px">End Icon Name</th>
+              <th class="slds-p-around--x-small" style="width: 200px">Hide Tab?</th>
               <th class="slds-p-around--x-small" style="width: 200px">
                 Variable Error
                 <lightning-helptext
@@ -88,7 +89,30 @@
                   </lightning-input>
                 </td>
                 <td>
-                  <template lwc:if={errorOptions.length}>
+                  <template lwc:if={booleanOptions.length}>
+                    <lightning-combobox
+                      class="slds-p-around--xx-small"
+                      name="hideTab"
+                      variant="label-hidden"
+                      value={tab.hideTab}
+                      data-value={tab.value}
+                      placeholder="Select...."
+                      options={booleanOptions}
+                      onchange={handleUpdateField}
+                    >
+                    </lightning-combobox>
+                  </template>
+                  <template lwc:else>
+                    <div class="slds-p-around--x-small">
+                      <lightning-formatted-text
+                        value="There are no Boolean variables, constants or formulas in the flow"
+                      >
+                      </lightning-formatted-text>
+                    </div>
+                  </template>
+                </td>
+                <td>
+                  <template lwc:if={booleanOptions.length}>
                     <lightning-combobox
                       class="slds-p-around--xx-small"
                       name="hasError"
@@ -96,7 +120,7 @@
                       value={tab.hasError}
                       data-value={tab.value}
                       placeholder="Select...."
-                      options={errorOptions}
+                      options={booleanOptions}
                       onchange={handleUpdateField}
                     >
                     </lightning-combobox>

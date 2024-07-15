@@ -21,7 +21,7 @@ export default class OD_FlowTabsConfigurationTabs extends LightningModal {
     return this.theTabs.length === 0;
   }
 
-  get errorOptions() {
+  get booleanOptions() {
     const result = [];
 
     // variables
