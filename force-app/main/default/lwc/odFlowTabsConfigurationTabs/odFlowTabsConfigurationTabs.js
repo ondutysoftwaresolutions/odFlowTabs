@@ -22,7 +22,12 @@ export default class OD_FlowTabsConfigurationTabs extends LightningModal {
   }
 
   get booleanOptions() {
-    const result = [];
+    const result = [
+      {
+        label: '',
+        value: -1,
+      },
+    ];
 
     // variables
     const variables = this.builderContext.variables;
@@ -125,7 +130,7 @@ export default class OD_FlowTabsConfigurationTabs extends LightningModal {
   // handler methods
   // =================================================================
   handleUpdateField(event) {
-    const value = event.detail.value;
+    const value = event.detail.value === -1 ? null : event.detail.value;
     const tabValue = event.target.dataset.value;
     const name = event.target.name;
 
