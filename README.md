@@ -21,6 +21,11 @@ You can create the tabs with the following properties
 - Default Active?: a radio button to specify which tab should be active by default
 - Order: the Order of the tab to display in the component
 
+## Support
+If you want to support my work, feel free to buy me a coffee 😀
+
+<a href="https://www.buymeacoffee.com/ondutysoftwaresolutions"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=ondutysoftwaresolutions&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+
 ## Live Demo
 
 Live Demo on a Scratch Org: <a href="https://hosted-scratch.herokuapp.com/launch?template=https://github.com/ondutysoftwaresolutions/odFlowTabs">CLICK HERE</a>
